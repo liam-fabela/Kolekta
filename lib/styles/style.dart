@@ -32,3 +32,13 @@ TextStyle secondaryHeader() {
     fontFamily: 'Bebas Neue',
   );
 }
+
+InputDecoration textFieldInputDecoration(String hintText) {
+  return InputDecoration(
+    hintText: hintText,
+    hintStyle: const TextStyle(
+      color: Colors.black54,
+    ),
+    
+  );
+}
