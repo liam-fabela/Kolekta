@@ -1,0 +1,2 @@
+# Kolekta
+A project
