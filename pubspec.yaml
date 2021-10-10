@@ -64,6 +64,8 @@ flutter:
      - assets/images/kolekta.png
      - assets/images/header.png
      - assets/images/garbage-truck-shadow.png
+     - assets/images/trash-bin-shadow.png
+     
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.
@@ -80,6 +82,12 @@ flutter:
      - family: Bebas Neue
        fonts:
          - asset: assets/fonts/BebasNeue-Regular.ttf
+     - family: Roboto Condensed
+       fonts:
+         - asset: assets/fonts/RobotoCondensed-Bold.ttf
+         - asset: assets/fonts/RobotoCondensed-Light.ttf
+         - asset: assets/fonts/RobotoCondensed-Regular.ttf
+
   #       - asset: fonts/Schyler-Italic.ttf
   #         style: italic
   #   - family: Trajan Pro

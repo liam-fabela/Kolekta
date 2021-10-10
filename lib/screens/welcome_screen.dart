@@ -3,12 +3,14 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
+import '../screens/login_screen.dart';
+import '../screens/register_screen.dart';
 import '../styles/style.dart';
 
 class WelcomeScreen extends StatefulWidget {
-  final Function toggle;
+ 
 
-  const WelcomeScreen(this.toggle, {Key? key}) : super(key: key);
+  const WelcomeScreen({Key? key}) : super(key: key);
 
   @override
   _WelcomeScreenState createState() => _WelcomeScreenState();
@@ -63,7 +65,7 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                     children: [
                       GestureDetector(
                         onTap: (){
-                          widget.toggle();
+                          Navigator.push(context, MaterialPageRoute(builder: (context)=> const LoginScreen()),);
                         },
                         child: Container(
                           height: MediaQuery.of(context).size.height * 0.07,
@@ -78,7 +80,7 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                           ),
                           child: Center(
                             child: Text(
-                              'Login',
+                              'LOGIN',
                               style: buttonText1(),
                             ),
                           ),
@@ -89,7 +91,7 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                       ),
                       GestureDetector(
                         onTap: (){
-                          
+                            Navigator.push(context, MaterialPageRoute(builder: (context)=> const RegisterScreen()),);
                         },
                         child: Container(
                           height: MediaQuery.of(context).size.height * 0.07,

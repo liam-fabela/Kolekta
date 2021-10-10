@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
 import 'screens/welcome_screen.dart';
-import 'helpers/toggle_screen.dart';
+
 
 void main() {
 
@@ -27,7 +27,7 @@ class MyApp extends StatelessWidget {
       ),
       initialRoute: '/',
       routes: {
-        '/': (ctx) =>  const ToggleScreen(),
+        '/': (ctx) =>  const WelcomeScreen(),
       },
     );
   }
