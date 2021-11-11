@@ -4,7 +4,7 @@ import 'package:flutter/painting.dart';
 import '../styles/style.dart';
 
 class RegisterScreen extends StatefulWidget {
-
+  static const routeName = '/resident_home';
   const RegisterScreen({Key? key}) : super(key: key);
 
   @override
@@ -12,6 +12,16 @@ class RegisterScreen extends StatefulWidget {
 }
 
 class _RegisterScreenState extends State<RegisterScreen> {
+  int? selectedRadio = 0;
+  
+
+  setSelectedRadio(int? val) {
+    setState(() {
+      selectedRadio = val;
+    });
+    
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -75,7 +85,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                   ),
                 ),
               ),
-               Positioned(
+              Positioned(
                 top: MediaQuery.of(context).size.height * 0.38,
                 child: SizedBox(
                   height: MediaQuery.of(context).size.height * 0.5,
@@ -92,16 +102,18 @@ class _RegisterScreenState extends State<RegisterScreen> {
                               Row(
                                 children: [
                                   SizedBox(
-                                    height:
-                                        MediaQuery.of(context).size.height * 0.07,
-                                    width: MediaQuery.of(context).size.width * 0.43,
+                                    height: MediaQuery.of(context).size.height *
+                                        0.07,
+                                    width: MediaQuery.of(context).size.width *
+                                        0.43,
                                     child: TextFormField(
                                       decoration: InputDecoration(
                                         filled: true,
                                         fillColor: const Color.fromRGBO(
                                             163, 210, 217, 0.4),
                                         border: OutlineInputBorder(
-                                          borderRadius: BorderRadius.circular(30),
+                                          borderRadius:
+                                              BorderRadius.circular(30),
                                           borderSide: BorderSide.none,
                                         ),
                                         hintText: "First Name",
@@ -111,17 +123,20 @@ class _RegisterScreenState extends State<RegisterScreen> {
                                       ),
                                     ),
                                   ),
-                                   SizedBox(
-                                    height:
-                                        MediaQuery.of(context).size.height * 0.07,
-                                    width: MediaQuery.of(context).size.width * 0.43,
+                                  const SizedBox(width: 5),
+                                  SizedBox(
+                                    height: MediaQuery.of(context).size.height *
+                                        0.07,
+                                    width: MediaQuery.of(context).size.width *
+                                        0.43,
                                     child: TextFormField(
                                       decoration: InputDecoration(
                                         filled: true,
                                         fillColor: const Color.fromRGBO(
                                             163, 210, 217, 0.4),
                                         border: OutlineInputBorder(
-                                          borderRadius: BorderRadius.circular(30),
+                                          borderRadius:
+                                              BorderRadius.circular(30),
                                           borderSide: BorderSide.none,
                                         ),
                                         hintText: "Last Name",
@@ -133,11 +148,11 @@ class _RegisterScreenState extends State<RegisterScreen> {
                                   ),
                                 ],
                               ),
-                               const SizedBox(height: 20),
-                               SizedBox(
+                              const SizedBox(height: 10),
+                              SizedBox(
                                 height:
                                     MediaQuery.of(context).size.height * 0.07,
-                                width: MediaQuery.of(context).size.width * 0.86,
+                                width: MediaQuery.of(context).size.width * 0.87,
                                 child: TextFormField(
                                   decoration: InputDecoration(
                                     filled: true,
@@ -154,20 +169,22 @@ class _RegisterScreenState extends State<RegisterScreen> {
                                   ),
                                 ),
                               ),
-                             const SizedBox(height: 20),
-                               Row(
-                                 children: [
-                                   SizedBox(
-                                    height:
-                                        MediaQuery.of(context).size.height * 0.07,
-                                    width: MediaQuery.of(context).size.width * 0.43,
+                              const SizedBox(height: 10),
+                              Row(
+                                children: [
+                                  SizedBox(
+                                    height: MediaQuery.of(context).size.height *
+                                        0.07,
+                                    width: MediaQuery.of(context).size.width *
+                                        0.43,
                                     child: TextFormField(
                                       decoration: InputDecoration(
                                         filled: true,
                                         fillColor: const Color.fromRGBO(
                                             163, 210, 217, 0.4),
                                         border: OutlineInputBorder(
-                                          borderRadius: BorderRadius.circular(30),
+                                          borderRadius:
+                                              BorderRadius.circular(30),
                                           borderSide: BorderSide.none,
                                         ),
                                         hintText: "Email",
@@ -177,18 +194,21 @@ class _RegisterScreenState extends State<RegisterScreen> {
                                       ),
                                       keyboardType: TextInputType.emailAddress,
                                     ),
-                              ),
-                              SizedBox(
-                                    height:
-                                        MediaQuery.of(context).size.height * 0.07,
-                                    width: MediaQuery.of(context).size.width * 0.43,
+                                  ),
+                                  const SizedBox(width: 5),
+                                  SizedBox(
+                                    height: MediaQuery.of(context).size.height *
+                                        0.07,
+                                    width: MediaQuery.of(context).size.width *
+                                        0.43,
                                     child: TextFormField(
                                       decoration: InputDecoration(
                                         filled: true,
                                         fillColor: const Color.fromRGBO(
                                             163, 210, 217, 0.4),
                                         border: OutlineInputBorder(
-                                          borderRadius: BorderRadius.circular(30),
+                                          borderRadius:
+                                              BorderRadius.circular(30),
                                           borderSide: BorderSide.none,
                                         ),
                                         hintText: "Mobile Number",
@@ -198,77 +218,116 @@ class _RegisterScreenState extends State<RegisterScreen> {
                                       ),
                                       keyboardType: TextInputType.phone,
                                     ),
-                              ),
-                                 ],
-                               ),
-                              const SizedBox(height: 20),
-                              Row(
-                                children: [
-                                  Container(
-                                    height:
-                                        MediaQuery.of(context).size.height * 0.07,
-                                    width: MediaQuery.of(context).size.width * 0.43,
-                                    decoration: BoxDecoration(
-                                      color:
-                                          const Color.fromRGBO(163, 210, 217, 0.4),
-                                      borderRadius: BorderRadius.circular(30),
-                                    ),
-                                    child: Container(
-                                          height:
-                                              MediaQuery.of(context).size.height *
-                                                  0.07,
-                                          width: MediaQuery.of(context).size.width *
-                                              0.6,
-                                          child: TextFormField(
-                                            decoration: const InputDecoration(
-                                              border: OutlineInputBorder(
-                                                borderSide: BorderSide.none,
-                                              ),
-                                              hintText: "Password",
-                                              hintStyle: TextStyle(
-                                                color: Colors.black54,
-                                              ),
-                                            ),
-                                            obscureText: true,
-                                            keyboardType:
-                                                TextInputType.visiblePassword,
-                                          ),
-                                        ),
-                                  ),
-                                  Container(
-                                    height:
-                                        MediaQuery.of(context).size.height * 0.07,
-                                    width: MediaQuery.of(context).size.width * 0.43,
-                                    decoration: BoxDecoration(
-                                      color:
-                                          const Color.fromRGBO(163, 210, 217, 0.4),
-                                      borderRadius: BorderRadius.circular(30),
-                                    ),
-                                    child: Container(
-                                          height:
-                                              MediaQuery.of(context).size.height *
-                                                  0.07,
-                                          width: MediaQuery.of(context).size.width *
-                                              0.6,
-                                          child: TextFormField(
-                                            decoration: const InputDecoration(
-                                              border: OutlineInputBorder(
-                                                borderSide: BorderSide.none,
-                                              ),
-                                              hintText: "Confirm Password",
-                                              hintStyle: TextStyle(
-                                                color: Colors.black54,
-                                              ),
-                                            ),
-                                            obscureText: true,
-                                            keyboardType:
-                                                TextInputType.visiblePassword,
-                                          ),
-                                        ),
                                   ),
                                 ],
                               ),
-                              const SizedBox(height: 30),
+                              const SizedBox(height: 10),
+                              Row(
+                                children: [
+                                  Container(
+                                    height: MediaQuery.of(context).size.height *
+                                        0.07,
+                                    width: MediaQuery.of(context).size.width *
+                                        0.43,
+                                    decoration: BoxDecoration(
+                                      color: const Color.fromRGBO(
+                                          163, 210, 217, 0.4),
+                                      borderRadius: BorderRadius.circular(30),
+                                    ),
+                                    child: SizedBox(
+                                      height:
+                                          MediaQuery.of(context).size.height *
+                                              0.07,
+                                      width: MediaQuery.of(context).size.width *
+                                          0.6,
+                                      child: TextFormField(
+                                        decoration: const InputDecoration(
+                                          border: OutlineInputBorder(
+                                            borderSide: BorderSide.none,
+                                          ),
+                                          hintText: "Password",
+                                          hintStyle: TextStyle(
+                                            color: Colors.black54,
+                                          ),
+                                        ),
+                                        obscureText: true,
+                                        keyboardType:
+                                            TextInputType.visiblePassword,
+                                      ),
+                                    ),
+                                  ),
+                                  const SizedBox(width: 5),
+                                  Container(
+                                    height: MediaQuery.of(context).size.height *
+                                        0.07,
+                                    width: MediaQuery.of(context).size.width *
+                                        0.43,
+                                    decoration: BoxDecoration(
+                                      color: const Color.fromRGBO(
+                                          163, 210, 217, 0.4),
+                                      borderRadius: BorderRadius.circular(30),
+                                    ),
+                                    child: SizedBox(
+                                      height:
+                                          MediaQuery.of(context).size.height *
+                                              0.07,
+                                      width: MediaQuery.of(context).size.width *
+                                          0.6,
+                                      child: TextFormField(
+                                        decoration: const InputDecoration(
+                                          border: OutlineInputBorder(
+                                            borderSide: BorderSide.none,
+                                          ),
+                                          hintText: "Confirm Password",
+                                          hintStyle: TextStyle(
+                                            color: Colors.black54,
+                                          ),
+                                        ),
+                                        obscureText: true,
+                                        keyboardType:
+                                            TextInputType.visiblePassword,
+                                      ),
+                                    ),
+                                  ),
+                                ],
+                              ),
+                              Row(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  Text("I am a :", style: normalText()),
+                                  const SizedBox(width: 5,),
+                                  Row(
+                                    children: [
+                                      Text("Resident", style: normalText()),
+                                      Radio(
+                                        value: 1,
+                                        groupValue: selectedRadio,
+                                        activeColor: const Color.fromRGBO(62, 135, 148, 1), 
+                                        onChanged: (int? value) {  
+                                          // ignore: avoid_print
+                                          print("Radio val");
+                                          setSelectedRadio(value);
+                                        },
+                                      ),
+                                    ],
+                                  ),
+                                   Row(
+                                     children: [
+                                       Text("Garbage Collector", style: normalText()),
+                                       Radio(
+                                        value: 2,
+                                        groupValue: selectedRadio,
+                                        activeColor: const Color.fromRGBO(62, 135, 148, 1), 
+                                        onChanged: (int? value) {  
+                                          // ignore: avoid_print
+                                          print("Radio val");
+                                          setSelectedRadio(value);
+                                        },
+                                  ),
+                                     ],
+                                   ),
+                              ],),
+                              const SizedBox(height: 20),
                               GestureDetector(
                                 onTap: () {},
                                 child: Container(
@@ -310,8 +369,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                   width: MediaQuery.of(context).size.width * 0.099,
                   decoration: const BoxDecoration(
                     image: DecorationImage(
-                      image:
-                          AssetImage("assets/images/trash-bin-shadow.png"),
+                      image: AssetImage("assets/images/trash-bin-shadow.png"),
                       fit: BoxFit.cover,
                     ),
                   ),

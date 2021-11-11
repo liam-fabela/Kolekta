@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
 
 import '../styles/style.dart';
-
+import 'resident_home_screen.dart';
 class LoginScreen extends StatefulWidget {
   
 
@@ -163,7 +163,9 @@ class _LoginScreenState extends State<LoginScreen> {
                               ),
                               const SizedBox(height: 30),
                               GestureDetector(
-                                onTap: () {},
+                                onTap: () {
+                                  Navigator.pushNamedAndRemoveUntil(context, '/resident_home', (_) => false);
+                                },
                                 child: Container(
                                   height:
                                       MediaQuery.of(context).size.height * 0.07,

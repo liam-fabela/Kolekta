@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
 import 'screens/welcome_screen.dart';
+import 'screens/resident_home_screen.dart';
 
 
 void main() {
@@ -28,6 +29,7 @@ class MyApp extends StatelessWidget {
       initialRoute: '/',
       routes: {
         '/': (ctx) =>  const WelcomeScreen(),
+        '/resident_home': (ctx) => const ResidentHomeScreen(),
       },
     );
   }
