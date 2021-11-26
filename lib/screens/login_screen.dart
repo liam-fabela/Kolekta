@@ -1,5 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
+import 'package:fluttertoast/fluttertoast.dart';
+import 'package:flutter_easyloading/flutter_easyloading.dart';
+import 'dart:async';
+import 'dart:convert';
+import 'package:http/http.dart' as http;
 
 import '../styles/style.dart';
 import 'resident_home_screen.dart';
@@ -15,6 +20,53 @@ class LoginScreen extends StatefulWidget {
 class _LoginScreenState extends State<LoginScreen> {
   var showPass = false;
   var obscure = true;
+  final TextEditingController _email = TextEditingController();
+  final TextEditingController _password = TextEditingController();
+  final formKey = GlobalKey<FormState>();
+   Timer? _timer;
+  static const url = 'http://192.168.43.215/db_php/login.php';
+
+
+  @override
+  void initState() {
+    super.initState();
+    // Initialize the package
+    // ignore: unnecessary_new
+    EasyLoading.addStatusCallback((status) {
+      print('EasyLoading Status $status');
+      if (status == EasyLoadingStatus.dismiss) {
+        _timer?.cancel();
+      }
+    }); 
+  }
+
+  Future<void> _loginUser() async {
+    try {
+      if(formKey.currentState!.validate()) {
+         _timer?.cancel();
+                      await EasyLoading.show(
+                        status: 'loading...',
+                        maskType: EasyLoadingMaskType.black,
+                      );
+       // ignore: prefer_collection_literals
+       var map = Map<String, dynamic>();
+        map['email'] = _email.text; 
+        map['password'] = _password.text;
+         http.Response response = await http.post(Uri.parse(url),
+            body: jsonEncode(map),
+            headers: {'Content-type': 'application/json'});
+        print('Login Response: ${response.body}');
+        if (200 == response.statusCode) {
+          print(response.body);
+          var data = json.decode(response.body);
+          
+
+        }
+      }
+    }catch(e) {
+
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -74,6 +126,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   child: Column(
                     children: [
                       Form(
+                        key: formKey,
                         child: Padding(
                           padding: const EdgeInsets.symmetric(
                             horizontal: 20,
@@ -85,6 +138,17 @@ class _LoginScreenState extends State<LoginScreen> {
                                     MediaQuery.of(context).size.height * 0.07,
                                 width: MediaQuery.of(context).size.width * 0.86,
                                 child: TextFormField(
+                                   validator: (String? val) {
+                                           if (val!.isEmpty) {
+                                        return "Please enter email";
+                                            }
+                                           if(RegExp(r"^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+")
+                                                      .hasMatch(val) ==
+                                                  false) {
+                                                     return 'Please Enter a Valid Email Address';
+                                          }
+                                        return null;                
+                                         },
                                   decoration: InputDecoration(
                                     filled: true,
                                     fillColor: const Color.fromRGBO(
@@ -99,6 +163,7 @@ class _LoginScreenState extends State<LoginScreen> {
                                     ),
                                   ),
                                   keyboardType: TextInputType.emailAddress,
+                                  controller: _email,
                                 ),
                               ),
                               const SizedBox(height: 20),
@@ -121,6 +186,13 @@ class _LoginScreenState extends State<LoginScreen> {
                                       width: MediaQuery.of(context).size.width *
                                           0.6,
                                       child: TextFormField(
+                                         validator:(String? val) {
+                                           if (val!.isEmpty) {
+                                        return "Please enter password";
+                                            }
+      
+                                        return null;                
+                                         },
                                         decoration: const InputDecoration(
                                           border: OutlineInputBorder(
                                             borderSide: BorderSide.none,
@@ -133,6 +205,7 @@ class _LoginScreenState extends State<LoginScreen> {
                                         obscureText: obscure,
                                         keyboardType:
                                             TextInputType.visiblePassword,
+                                         controller: _password,
                                       ),
                                     ),
                                     GestureDetector(

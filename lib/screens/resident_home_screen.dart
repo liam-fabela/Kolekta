@@ -44,8 +44,8 @@ class _ResidentHomeScreenState extends State<ResidentHomeScreen> {
           type: BottomNavigationBarType.fixed,
           onTap: _selectPage,
           backgroundColor:  const Color.fromRGBO(62, 135, 148, 1),//Theme.of(context).primaryColor,
-          unselectedItemColor: const Color.fromRGBO(49, 204, 183,1),
-          selectedItemColor: Colors.white,
+          unselectedItemColor: Colors.white,
+          selectedItemColor: const Color.fromRGBO(49, 204, 183,1),
           currentIndex: _selectedPageIndex,
           items: [
             BottomNavigationBarItem(

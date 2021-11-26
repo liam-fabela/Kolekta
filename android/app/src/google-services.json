@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "727993387295",
+    "project_id": "kolekta-4e78d",
+    "storage_bucket": "kolekta-4e78d.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:727993387295:android:ba9f24ec1486c90bfc082a",
+        "android_client_info": {
+          "package_name": "com.example.kolekta"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "727993387295-tqbejp682at5p82g9t6nop5ta5kqmbar.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBZUXpQzIxHxY9_j2kHlEv5EycqAyLWolI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "727993387295-tqbejp682at5p82g9t6nop5ta5kqmbar.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
